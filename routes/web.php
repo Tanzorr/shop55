@@ -28,4 +28,20 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::get('profile','AdminController@profile');
     Route::get('/addProduct','AdminController@addProduct');
     Route::post('/saveProduct','AdminController@saveProduct');
+
+    Route::view('products','admin.products',[
+        'data'=> App\products::all()
+    ]);
+
+    //edit product
+    Route::get('editProduct/{id}', function ($id){
+        return view('admin.editProduct',[
+            'data'=> App\products::where('id',$id)->get()
+        ]);
+    });
+
+    //cahange image
+    Route::view('/changeImage/{id}','admin.changeImage');
+    Route::post('/uploadPP','AdminController@uploadPP');
+
 });
