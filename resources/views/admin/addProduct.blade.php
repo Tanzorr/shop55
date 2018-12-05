@@ -10,13 +10,14 @@
             $("#btn").click(function(){
                 $("#msg").show();
                var pro_name =$("#pro_name").val();
+               var pro_info =$("#pro_info").val();
                var pro_code =$("#pro_code").val();
                var pro_price =$("#pro_price").val();
-               var token =$("#token").val();
+                var token =$("#token").val();
 
                $.ajax({
                    type:"post",
-                   data: "&pro_name="+pro_name+ "&pro_code=" +pro_code+ "&pro_price=" +pro_price+ "&token=" +token,
+                   data: "&pro_name="+pro_name+"&pro_info="+pro_info+"&pro_info="+pro_info+ "&pro_code=" +pro_code+ "&pro_price=" +pro_price+ "&token=" +token,
                    url: "<?php echo url('admin/saveProduct'); ?>",
                    success:function (data) {
                       $("#msg").html("Product has been inserted");
@@ -42,6 +43,10 @@
                             <input type="hidden" value="{{csrf_token()}}" id="token">
                                 <label for="">Product name</label>
                                 <input type="text" id="pro_name" class="form-control">
+                                <br>
+                                <label for="">Product info</label>
+                                <textarea type="text" id="pro_info" class="form-control">
+                                </textarea>
                                 <br>
                                 <label for="">Product Code</label>
                                 <input type="text" id="pro_code" class="form-control">

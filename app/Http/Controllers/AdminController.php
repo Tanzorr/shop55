@@ -23,6 +23,7 @@ class AdminController extends Controller
     public function saveProduct(Request $request){
        // return $request;
         $pro_name =$request->pro_name;
+        $pro_info =$request->pro_info;
         $pro_code =$request->pro_code;
         $pro_price =$request->pro_price;
 
@@ -32,20 +33,22 @@ class AdminController extends Controller
             $add_product = DB::table("products")->where('id', $id)
                 ->update([
                 'pro_name'=>$pro_name,
+                'pro_info'=>$pro_info,
                 'pro_code'=>$pro_code,
                 'pro_price'=>$pro_price,
-                'pro_img'=>"img.jpg",
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
-                //'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+               //'pro_img'=>"img.jpg",
+               // 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
         }else{
             // insert new product
             $add_product = DB::table("products")->insert([
                 'pro_name'=>$pro_name,
+                'pro_info'=>$pro_info,
                 'pro_code'=>$pro_code,
                 'pro_price'=>$pro_price,
                 'pro_img'=>"img.jpg",
-                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+               'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 //'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
         }

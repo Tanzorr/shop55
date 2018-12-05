@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 
-
+Route::view('/','front.index');
 Auth::routes();
+
+Route::view('products','front.products',['data'=>App\products::all()]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
