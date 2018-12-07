@@ -60,6 +60,10 @@
     text-align: center;
 }
 
+th,td{
+    padding:10px;
+}
+
 @charset "UTF-8";/*!
 Animate.css - http://daneden.me/animate
 Licensed under the MIT license - http://opensource.org/licenses/MIT

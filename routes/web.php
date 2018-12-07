@@ -15,11 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('test',function(){
+    return App\cats::with('childs')
+        ->where('p_id',0)->get();
+});
+
 
 Route::view('/','front.index');
 Auth::routes();
 
-Route::view('products','front.products',['data'=>App\products::all()]);
+Route::view('products','front.products',['data'=>App\products::with('cats')->get(),'catByUser'=>'All Products']);
+
+Route::get('products/{cat}','ProductsController@proCat');
+
+Route::get('search', 'ProductsController@search');
+
+Route::get('productsCat', 'ProductController@productsCat');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -31,8 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::get('/addProduct','AdminController@addProduct');
     Route::post('/saveProduct','AdminController@saveProduct');
 
-    Route::view('products','admin.products',[
-        'data'=> App\products::all()
+    Route::view('products', 'admin.products', [
+        'data' => App\products::with('cats')->get()
     ]);
 
     //edit product
@@ -45,5 +56,12 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     //cahange image
     Route::view('/changeImage/{id}','admin.changeImage');
     Route::post('/uploadPP','AdminController@uploadPP');
+
+    //category
+
+    Route::view('addCategory','admin.addCategory');
+    Route::view('cats','admin.cats',['data'=>App\Cats::all()]);
+
+    Route::post('saveCategory','AdminController@saveCategory');
 
 });

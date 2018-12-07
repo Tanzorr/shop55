@@ -9,15 +9,17 @@
            $("#msg").hide();
             $("#btn").click(function(){
                 $("#msg").show();
+                var cat_id =$("#cat_id").val();
                var pro_name =$("#pro_name").val();
                var pro_info =$("#pro_info").val();
                var pro_code =$("#pro_code").val();
                var pro_price =$("#pro_price").val();
                 var token =$("#token").val();
-
+                    alert(cat_id);
                $.ajax({
                    type:"post",
-                   data: "&pro_name="+pro_name+"&pro_info="+pro_info+"&pro_info="+pro_info+ "&pro_code=" +pro_code+ "&pro_price=" +pro_price+ "&token=" +token,
+                   data: "&pro_name="+pro_name+"&pro_info="+pro_info+"&pro_info="+pro_info+ "&pro_code=" +pro_code+
+                       "&pro_price=" +pro_price+ "&token=" +token+ "&cat_id="+cat_id,
                    url: "<?php echo url('admin/saveProduct'); ?>",
                    success:function (data) {
                       $("#msg").html("Product has been inserted");
@@ -41,6 +43,14 @@
                             <h2>Add Product</h2>
                             <p class="alert alert-success " id="msg"></p>
                             <input type="hidden" value="{{csrf_token()}}" id="token">
+                                <label for="">Categories</label>
+                                <select name="cat_id" id="cat_id" class="form-control">
+                                    <option value="">please select a category</option>
+                                    @foreach(App\Cats::all() as $c)
+                                    <option value="{{$c->id}}">{{$c->cat_name}}</option>
+                                    @endforeach
+                                </select>
+                                 <br>
                                 <label for="">Product name</label>
                                 <input type="text" id="pro_name" class="form-control">
                                 <br>

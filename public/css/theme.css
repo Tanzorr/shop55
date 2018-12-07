@@ -143,7 +143,7 @@ footer h5{border-bottom: 1px solid #e5e5e5;clear: both;color: #000;font-size: 1.
 .breadcrumbs ul li a {color: #666;text-decoration: none;}
 .breadcrumbs ul li a:hover {text-decoration: underline;}
 .greyBg{ background-color: #fafafa; width: 100%; }
-select {display: none; }
+/*select {display: none; }*/
 .nice-select {-webkit-tap-highlight-color: transparent;background-color: #fff;border-radius: 5px;border: solid 1px #f4f4f4;box-sizing: border-box;clear: both;cursor: pointer;display: block;float: left;font-family: inherit;font-size: 14px;font-weight: normal;height: 42px;line-height: 40px;outline: none;padding-left: 18px;padding-right: 30px;position: relative;text-align: left !important;transition: all 0.2s ease-in-out;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;white-space: nowrap;width: 100%; }
 .nice-select:hover {border-color: #d0dae5; }
 .nice-select:active, .nice-select.open, .nice-select:focus {border-color: #eee; }

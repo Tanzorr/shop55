@@ -139,17 +139,98 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline pull-right" action="/action_page.php">
+            <form class="form-inline pull-right" action="{{url('search')}}">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">@</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" name="searchData" class="form-control" placeholder="serch">
                 </div>
             </form>
         </nav>
     </div>
 
+</header>
+<header id="header" class="hidden-xs">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6"><div class="tollNum">Tollfree : 888 888 8888</div></div>
+                <div class="col-sm-6">
+
+                    <div class="account-link ">
+
+                        <ul>
+                            @if(Auth::check())
+                                <li><a href="{{url('/inbox')}}" >INBOX(0)</a></li>
+                                <li><a href="{{url('/home')}}">MY ACCOUNT</a></li>
+                                <li><a href="{{url('/logout')}}">LOGOUT</a></li>
+                            @else
+                                <li><a href="{{url('/login')}}">LOGIN</a></li>
+                            @endif
+                            <li><a onclick="javascript:showDiv('slidingDiv');"
+                                   href="javascript:;">SEARCH</a>
+                                <div id="slidingDiv" class="srchBox">
+                                    <form action="{{url('search')}}">
+                                        <input type="text" name="searchData" />
+                                        <i class="fa fa-search"></i>
+                                    </form>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="logo">
+                    <a href="{{url('/')}}" class="logo-container"><img src="{{Config::get('app.url')}}/theme/images/logo.jpg" /></a></div></div>
+            <div class="col-sm-8">
+                <div class="nav-link">
+                    <ul>
+                        <li><a href="{{url('/products')}}">Products</a>
+                            <ul class="dropdown">
+                                @foreach(App\cats::with('childs')
+                                ->where('p_id',0)->get() as $item)
+                                    @if($item->childs->count()>0)
+                                        <li>
+                                            <a href="{{url('products')}}/{{$item->cat_name}}"><h4>{{$item->cat_name}}</h3></a>
+                                            @foreach($item->childs as $subMenu)
+                                                <ul>
+                                                    <li><a href="{{url('products')}}/{{$subMenu->cat_name}}">
+                                                            --{{$subMenu->cat_name}}</a></li>
+                                                </ul>
+                                            @endforeach
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{url('products')}}/{{$item->cat_name}}">
+                                                <h4>{{$item->cat_name}}</h4></a>
+                                        </li>
+                                    @endif
+                                @endforeach
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="nav-btns">
+                    <div class="nav-cart">
+                        {{--<a href="{{url('cart')}}"><img src="{{Config::get('app.url')}}/theme/images/cart.png"/>--}}
+                            {{--CART({{Cart::count()}})--}}
+                        {{--</a>--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
 @yield('content')
