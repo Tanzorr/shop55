@@ -94,6 +94,7 @@ class AdminController extends Controller
 
         $add_cat =DB::table('cats')->insert([
             'cat_name'=>$cat_name,
+            'p_id'=>0,
             'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
 
@@ -101,6 +102,19 @@ class AdminController extends Controller
             echo "done";
         }else{
             echo "error";
+        }
+    }
+
+    public  function banUser(Request $request){
+        //return $request->all();
+        $status = $request->status;
+        $userID = $request->userID;
+
+        $update_statuds = DB::table('users')
+            ->where('id',$userID)
+            ->update(['status'=>$status]);
+        if($update_statuds){
+            echo "status updayed successfylly";
         }
     }
 

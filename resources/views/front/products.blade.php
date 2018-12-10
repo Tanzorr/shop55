@@ -52,7 +52,15 @@
 
                         <div class="col-sm-6 hidden-xs">
                             <div class="row">
-
+                                    <div class="col-sm-4 pull-right">
+                                        <select name="" id="selectbox3">
+                                            <option value="">Sort by</option>
+                                            <option value="">Aye</option>
+                                            <option value="">Eh</option>
+                                            <option value="">Ooh</option>
+                                            <option value="">Whoop</option>
+                                        </select>
+                                    </div>
                                 <div class="col-sm-4 pull-right">
                                     <button id="findBtn" class="btn btn-success">Find</button>
                                 </div>
@@ -60,7 +68,6 @@
                             </div>
                         </div>
                         @endif
-                    </div>
 
 
         <div class="row top25">
@@ -76,6 +83,9 @@
 
                             </div>
                         @else
+        </div>
+                    </div>
+
                <div id="productData">
 
                 <div class="row">
@@ -96,22 +106,16 @@
                                 </div>
                             </div>
                           </div>
+
                     @endforeach
                         </div>
                        </div>
                     @endif
-
-                <div class="row hidden-xs">
-                    <div class="col-sm-12">
-                        <div class="topSell">
-                            <h3>DISCOVER OUR TOP SELLERS PRODUCTS FOR BODYCARE</h3>
-                            <span class="bttn"><a href="">SHOP NOW</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+                    </div>
     </div>
+
+    <div class="clear"></div>
 
 
 

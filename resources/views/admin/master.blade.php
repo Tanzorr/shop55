@@ -164,71 +164,87 @@
         </nav>
 
 
+
         @yield('content')
 
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
 
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>
-                    <a href="">LaraShop55</a>
-                </p>
+        <footer id="footer">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="copyrt">
+                            &copy; 2017 LaraShop55. All Rights Reserved. <a href="terms-conditions.php">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
+        {{--<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/html5.js"></script>--}}
+        {{--<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/bootstrap.js"></script>--}}
+        {{--<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/multiple-accordion.js"></script>--}}
+        {{--<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery.nice-select.js"></script>--}}
+        {{--<script type="text/javascript" src="{{Config::get('app.url')}}/theme/js/jquery.bootstrap-responsive-tabs.js"></script>--}}
+        <script>
+            $(function() {
+                var html = $('html, body'),
+                    navContainer = $('.nav-container'),
+                    navToggle = $('.nav-toggle'),
+                    navDropdownToggle = $('.has-dropdown');
+                // Nav toggle
+                navToggle.on('click', function(e) {
+                    var $this = $(this);
+                    e.preventDefault();
+                    $this.toggleClass('is-active');
+                    navContainer.toggleClass('is-visible');
+                    html.toggleClass('nav-open');
+                });
+            });
+        </script>
+        <script language="JavaScript">
+            $(document).ready(function() {
+                $(".topnav").accordion({
+                    accordion:false,
+                    speed: 500,
+                    closedSign: '+',
+                    openedSign: '-'
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
 
-    </div>
-</div>
-
-
+                $('select').niceSelect();
+                //  FastClick.attach(document.body);
+            });
+        </script>
+        <script>
+            $('.responsive-tabs').responsiveTabs({
+                accordionOn: ['xs', 'sm']
+            });
+        </script>
+        <script type="text/javascript">
+            function showDiv(divname){
+                closealldivs(divname);
+                $("#"+divname).slideToggle();
+            }
+            function closeMe(trgt)
+            {
+                $("#slidingDiv"+trgt).toggle();
+            }
+            function closealldivs(divname){
+                for(var i=1; i<=3; i++){
+                    var abc="slidingDiv"+i;
+                    if(divname!=abc){
+                        $("#slidingDiv"+i).hide(); }
+                }}
+        </script>
+        <script type="text/javascript">
+            $('#myTabs a').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            })
+        </script>
 </body>
-
-<!--   Core JS Files   -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
--->
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="{{Config::get('app.url')}}/admin_theme/assets/js/demo.js"></script>
-<script src="{{Config::get('app.url')}}/node_modules/select2/dist/js/select2.min.js"></script>
-<script type="text/javascript">
-    /*$(document).ready(function(){
-
-        demo.initChartist();
-
-        $.notify({
-            icon: 'pe-7s-gift',
-            message: "Welcome to LaraShop55 Admin."
-
-        },{
-            type: 'info',
-            timer: 4000
-        });
-
-    }); */
-</script>
-
 </html>

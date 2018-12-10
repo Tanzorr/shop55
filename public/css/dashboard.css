@@ -120,7 +120,7 @@ h1 .subtitle {
 /*     General overwrite     */
 body,
 .wrapper {
-
+    min-height: 100vh;
     position: relative; }
 
 a {
@@ -181,7 +181,7 @@ input:focus {
 .wrapper {
     position: relative;
     top: 0;
-   }
+    height: 100vh; }
 
 .sidebar,
 body > .navbar-collapse {
@@ -2812,6 +2812,4 @@ body > .navbar-collapse[data-color="purple"]:after {
         overflow-x: scroll;
         overflow-y: hidden;
         -ms-overflow-style: -ms-autohiding-scrollbar;
-        -webkit-overflow-scrolling: touch;
-    }
-}
+        -webkit-overflow-scrolling: touch; } }

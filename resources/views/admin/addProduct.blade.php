@@ -15,7 +15,7 @@
                var pro_code =$("#pro_code").val();
                var pro_price =$("#pro_price").val();
                 var token =$("#token").val();
-                    alert(cat_id);
+
                $.ajax({
                    type:"post",
                    data: "&pro_name="+pro_name+"&pro_info="+pro_info+"&pro_info="+pro_info+ "&pro_code=" +pro_code+
@@ -32,6 +32,7 @@
                     $('#products').load('<?php echo url('admin/products');?>').fadeIn("slow");
                 },1000);
         });
+        $("#cat_id").select2();
     </script>
     <div class="content">
         <div class="container-fluid">

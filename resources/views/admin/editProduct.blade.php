@@ -9,6 +9,7 @@
             $("#msg").hide();
             $("#btn").click(function(){
                 $("#msg").show();
+                var cat_id =$("#cat_id").val();
                 var pro_name =$("#pro_name").val();
                 var pro_info =$("#pro_info").val();
                 var pro_code =$("#pro_code").val();
@@ -17,7 +18,7 @@
                 var id = $("#id").val();
                 $.ajax({
                     type:"post",
-                    data: "id="+ id +"&pro_name="+pro_name+"&pro_info="+pro_info+ "&pro_code=" +pro_code+ "&pro_price=" +pro_price+ "&token=" +token,
+                    data: "id="+ id +"&pro_name="+pro_name+"&cat_id="+cat_id+"&pro_info="+pro_info+ "&pro_code=" +pro_code+ "&pro_price=" +pro_price+ "&token=" +token,
                     url: "<?php echo url('admin/saveProduct'); ?>",
                     success:function (data) {
                         $("#msg").html("Product has been updated");
@@ -44,6 +45,14 @@
                             <input type="hidden" value="{{csrf_token()}}" id="token">
                             <label for="">Product name</label>
                             <input type="text" id="pro_name"  value="{{$data[0]->pro_name}}"class="form-control">
+                            <br>
+                            <label for="">Categories</label>
+                            <select name="cat_id" id="cat_id" class="form-control">
+                                <option value="">please select a category</option>
+                                @foreach(App\Cats::all() as $c)
+                                    <option value="{{$c->id}}">{{$c->cat_name}}</option>
+                                @endforeach
+                            </select>
                             <br>
                             <label for="">Product info</label>
                             <textarea type="text" id="pro_info"  class="form-control">

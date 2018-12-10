@@ -30,9 +30,24 @@ Route::get('products/{cat}','ProductsController@proCat');
 
 Route::get('search', 'ProductsController@search');
 
-Route::get('productsCat', 'ProductController@productsCat');
+Route::get('productsCat', 'ProductsController@productsCat');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//user middleware
+
+Route::group(['middleware'=>'auth'], function(){
+    Route::view('myaccount','myacaunt.index');
+    Route::get('myaccount/{link}',function($link){
+        return view('myaccount.index',['link'=>$link]);
+    });
+
+    //start inbox
+    Route::view('inbox','myaccount.inbox',[
+        'data'=>App\inbox::all()
+    ]);
+});
+
 
 //admin middleware start
 Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function () {
@@ -63,5 +78,8 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
     Route::view('cats','admin.cats',['data'=>App\Cats::all()]);
 
     Route::post('saveCategory','AdminController@saveCategory');
+    Route::view('users', 'admin.users',['data'=>App\User::all()]);
+
+    Route::get('banUser', 'AdminController@banUser');
 
 });
