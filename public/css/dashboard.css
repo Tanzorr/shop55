@@ -185,7 +185,8 @@ input:focus {
 
 .sidebar,
 body > .navbar-collapse {
-    position: absolute;
+    position: relative;
+    float:left;
     top: 0;
     bottom: 0;
     left: 0;
@@ -195,7 +196,9 @@ body > .navbar-collapse {
     color: #fff;
     font-weight: 200;
     background-size: cover;
-    background-position: center center; }
+    background-position: center center;
+}
+
 .sidebar .sidebar-wrapper,
 body > .navbar-collapse .sidebar-wrapper {
     position: relative;

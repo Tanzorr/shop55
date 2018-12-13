@@ -30,7 +30,7 @@ Route::get('products/{cat}','ProductsController@proCat');
 
 Route::get('search', 'ProductsController@search');
 
-Route::get('productsCat', 'ProductController@productsCat');
+Route::get('productsCat', 'ProductsController@productsCat');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

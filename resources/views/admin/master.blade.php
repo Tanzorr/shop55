@@ -67,6 +67,11 @@
 <body>
 
 <div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+
+        </div>
+    </div>
     <div class="sidebar" data-color="blue" data-image="{{Config::get('app.url')}}/admin_theme/assets/img/sidebar-5.jpg">
 
 

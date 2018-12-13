@@ -1,5 +1,6 @@
+<div class="row">
 @foreach($data as $p)
-    <div class="col-xs-6 col-sm-4" >
+    <div class="col-lg-4" >
         <div class="itemBox">
             <div class="prod">
                 <img src="/img/{{$p->pro_img}}" alt=""
@@ -15,3 +16,4 @@
         </div>
     </div>
 @endforeach
+</div>
