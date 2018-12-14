@@ -31,6 +31,16 @@ Route::get('products/{cat}','ProductsController@proCat');
 Route::get('search', 'ProductsController@search');
 
 Route::get('productsCat', 'ProductsController@productsCat');
+//start inbox
+Route::view('inbox', 'myaccount.inbox', [
+    'data' => App\inbox::all()
+]);
+
+//user middleware
+ Route::group(['middleware'=>'auth'],function(){
+     Route::view('myaccount','myaccaunt.index');
+ });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 

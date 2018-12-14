@@ -10,7 +10,7 @@
                     <div class="card">
 
                         <div class="content">
-                            <h2>Home</h2>
+                            <h2>Da</h2>
                             <p>Etiam et tellus sem. Etiam blandit sollicitudin lectus vitae faucibus. Donec et massa fringilla.</p>
                             <div class="footer">
                                 <p>hasellus non imperdiet sem, vel posuere tellus</p>
