@@ -64,4 +64,10 @@ Route::group(['prefix' => 'admin', 'middleware'=> ['auth' => 'admin']], function
 
     Route::post('saveCategory','AdminController@saveCategory');
 
+    Route::view('users','admin.users',[
+        'data'=> App\User::all()
+    ]);
+
+    Route::get('banUser','AdminController@banUser');
+
 });
