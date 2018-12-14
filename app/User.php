@@ -18,6 +18,11 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+
+    public function isRole(){
+        return $this->role;
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
