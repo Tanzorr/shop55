@@ -36,6 +36,9 @@ Route::view('inbox', 'myaccount.inbox', [
     'data' => App\inbox::all()
 ]);
 
+//update inbox
+Route::get('updateInbox','profilleController@updateInbox');
+
 //user middleware
  Route::group(['middleware'=>'auth'],function(){
      Route::view('myaccount','myaccaunt.index');

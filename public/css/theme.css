@@ -439,3 +439,7 @@ ul.user_option{ list-style: none;}
 .panel-body{
     width: 100%;
 }
+
+.inboxRow a{
+    width: 100%;
+}
