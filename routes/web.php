@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('test',function(){
-    return App\cats::with('childs')
-        ->where('p_id',0)->get();
+
 });
 
+Route::get('cart', 'cartController@index');
 
 Route::view('/','front.index');
 Auth::routes();

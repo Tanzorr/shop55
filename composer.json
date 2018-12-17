@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "darryldecode/cart": "~4.0",
         "fideloper/proxy": "~3.3",
-        "gloudemans/shoppingcart": "^2.4",
+        "gloudemans/shoppingcart": "^2.5",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "melihovv/laravel-shopping-cart": "^5.7"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
