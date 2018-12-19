@@ -71,7 +71,7 @@
 			            <div class="add-address">
 			                <p>Meera</p>
 			                <p>H.no 12/01 Ludhiana, Punjab (141001)</p>
-			                <p>1234567890</p>
+			                <p>1234567890</p>т
 			            </div>
 		            </div>
 		        </div>

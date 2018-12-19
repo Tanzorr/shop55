@@ -16,10 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('test',function(){
+    $cart = new Darryldecode\Cart\Cart(23);
+ dd($cart);
 
 });
 
 Route::get('cart', 'cartController@index');
+Route::get('cart/add/{id}', 'cartController@addItem');
 
 Route::view('/','front.index');
 Auth::routes();

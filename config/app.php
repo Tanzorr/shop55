@@ -151,6 +151,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Melihovv\ShoppingCart\ServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -196,6 +197,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cart' => Melihovv\ShoppingCart\Facades\ShoppingCart::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ],
 ];
